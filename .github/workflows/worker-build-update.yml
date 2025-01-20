@@ -8,6 +8,8 @@ on:
 jobs:
   update-worker-build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for creating pull requests
     steps:
       - uses: actions/checkout@v4
 
