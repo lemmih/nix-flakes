@@ -20,6 +20,7 @@ jobs:
       - name: Update worker-build
         id: update
         run: |
+          cd worker-build
           nix run github:Mic92/nix-update -- default --flake
           if git diff --quiet; then
             echo "No updates available"
