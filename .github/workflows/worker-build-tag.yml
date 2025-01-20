@@ -1,4 +1,4 @@
-name: Tag Worker Build Version
+name: "worker-build: tag"
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: Update worker-build dependency
+name: "worker-build: update"
 
 on:
   schedule:
