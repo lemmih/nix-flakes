@@ -1,0 +1,31 @@
+name: Tag Worker Build Version
+
+on:
+  push:
+    paths:
+      - 'worker-build/flake.nix'
+  workflow_dispatch:
+
+jobs:
+  tag-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Extract version and create tag
+        run: |
+          VERSION=$(nix eval --raw ./worker-build#default.version)
+          TAG="worker-build-$VERSION"
+          
+          if ! git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Creating new tag: $TAG"
+            git tag "$TAG"
+            git push origin "$TAG"
+          else
+            echo "Tag $TAG already exists"
+          fi
