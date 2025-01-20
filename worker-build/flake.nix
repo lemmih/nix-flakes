@@ -11,7 +11,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         pname = "worker-build";
-        version = "0.1.2";
+        version = "0.1.1";
       in
       {
         packages = {
@@ -19,9 +19,9 @@
             inherit pname version;
             src = pkgs.fetchCrate {
               inherit pname version;
-              sha256 = "sha256-VWsUSUUSASONWmRI/eLZDDBAJGUkx1XpLLT/1Z1BMXo=";
+              sha256 = "sha256-xyXGFq3SlH2RovRRobccSQ2C89xyGgfTtP8WN52yJhg=";
             };
-            cargoHash = "sha256-h1AtkWEEWsMfGMpqQFbuJdvMiB/MWNr+7xDNsKqzVKs=";
+            cargoHash = "sha256-kfT5rrASaz8JkHviPWKYCuVTIJY2Gx3RmSm44aaI1xc=";
           };
         };
       });
